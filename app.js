@@ -4,7 +4,7 @@ const express = require('express');
 
 const app = express(); // running express as a funciton 
 
-app.use((req, res, next) => {
+app.use((req, res, next) => {    //next allow kore request next funciton y jaite
     console.log(' In the middlware');
     next(); //allow kore next middlware function y jaite
 });
