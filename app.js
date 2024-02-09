@@ -11,7 +11,7 @@ app.use((req, res, next) => {    //next allow kore request next funciton y jaite
 
 app.use((req, res, next) => {
     console.log(' In another middlware');
-
+    res.send('<h1>hello from express</h1>') //send response 
 });
 
 const server = http.createServer(app); // app pass koreci to create server
