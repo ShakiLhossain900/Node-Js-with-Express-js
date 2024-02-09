@@ -1,8 +1,10 @@
 // const http = require('http');
 
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express(); // running express as a funciton 
+app.use(bodyParser.urlencoded({extended: false}));
 
 // //middlware
 // app.use((req, res, next) => {    //next allow kore request next funciton y jaite
@@ -11,17 +13,13 @@ const app = express(); // running express as a funciton
 //     // calling next function middlware to middlware jowa jay
 // });
 
-//always run middlware
-app.use('/',(req, res, next) => {
-    console.log('this always run');
-    next();
-})
+//route handing middlware er age akta thirparty paccage install korte hobe
+//   npm install --save body-parser
+
 
 //middlware
 app.use('/add-product',(req, res, next) => {
-    console.log(' In another middlware');
-    res.send('<h1>add "product page" </h1>'); 
-    res.send('<form action="/procut" method="POST"><input type="text"><button type="submit>Add product</button></form>')
+    res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>');
 });
 
 app.use('/product', (req, res, next) => {
@@ -31,7 +29,6 @@ app.use('/product', (req, res, next) => {
 
 //middlware
 app.use('/',(req, res, next) => {
-    console.log(' In another middlware');
     res.send('<h1>hello from express</h1>') //send response //html content send 
 });
 
