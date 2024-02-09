@@ -1,4 +1,4 @@
-const http = require('http');
+// const http = require('http');
 
 const express = require('express');
 
@@ -17,6 +17,7 @@ app.use((req, res, next) => {
     res.send('<h1>hello from express</h1>') //send response //html content send 
 });
 
-const server = http.createServer(app); // app pass koreci to create server
+// const server = http.createServer(app); // app pass koreci to create server
+// server.listen(3000);
 
-server.listen(3000);
+app.listen(3000); //http lagbe na listen dile
